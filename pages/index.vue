@@ -1,10 +1,8 @@
 <template>
   <div class="flex flex-col items-center p-8">
-    <h1 class="text-3xl mb-6 text-indigo-600">
-      Cloudinary Product Customization
-    </h1>
+    <h1 class="text-3xl mb-6 text-indigo-600">Cloudinary Product Customization</h1>
     <section class="flex flex-col lg:flex-row justify-center w-full">
-      <ProductImage 
+      <ProductImage
         :selectedColor="selectedColor"
         :selectedImage="selectedImage"
         :selectedFont="selectedFont"
@@ -22,7 +20,7 @@
           :setActiveImage="setActiveImage"
           :selectedImage="selectedImage"
         />
-        <TextCustomPicker 
+        <TextCustomPicker
           :fontList="fontList"
           :setActiveFont="setActiveFont"
           :setText="setText"
@@ -44,33 +42,29 @@ export default {
       availableColors,
       imageList,
       fontList,
-      selectedColor: '47E8D2',
-      selectedImage: 'cloudinary-logo',
+      selectedColor: 'FFFFFF',
+      selectedImage: 'white-bar',
       selectedFont: 'Arial',
-      text: ''
+      text: 'Hello',
     }
   },
 
   methods: {
     setActiveColor(color) {
       this.selectedColor = color
-      console.log(this.selectedColor)
     },
 
     setActiveImage(image) {
       this.selectedImage = image
-      console.log(this.selectedImage)
     },
 
     setActiveFont(font) {
-      this.selectedFont = font;
-      console.log(this.selectedFont);
+      this.selectedFont = font
     },
 
     setText(text) {
       this.text = text
-      console.log(text)
-    }
+    },
   },
 }
 </script>

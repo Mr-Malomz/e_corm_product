@@ -1,18 +1,24 @@
 <template>
-  <cld-image public-id="Hanging_T-Shirt_v83je9" width="500">
-    <!-- <cld-transformation
-      :overlay="{
-        fontFamily: selectedFont,
-        fontSize: 33,
-        fontWeight: 'bold',
-        text: text,
-      }"
-      gravity="center"
-      color="#666"
-    /> -->
-    <cld-transformation effect="colorize" :color="`#${selectedColor}`"  fetch-format="auto"/>
-    <cld-transformation :overlay="selectedImage" width="1.3" height="1.3" gravity="faces" flags="region_relative" crop="crop" fetch-format="auto"/>
-  </cld-image>
+  <div>
+    <cld-image public-id="Hanging_T-Shirt_v83je9" width="500">
+      <cld-transformation :effect="`replace_color:${selectedColor}`" />
+      <cld-transformation :overlay="selectedImage" fetch-format="auto" width="110" />
+      <cld-transformation
+        :overlay="{
+          fontFamily: selectedFont,
+          fontSize: 33,
+          fontWeight: 'bold',
+          text: text,
+        }"
+        gravity="center"
+        y="0.1"
+      />
+    </cld-image>
+    <p>{{ `#${selectedColor}` }}</p>
+    <p>{{ selectedImage }}</p>
+    <p>{{ selectedFont }}</p>
+    <p>{{ text }}</p>
+  </div>
 </template>
 
 <script>
@@ -24,13 +30,5 @@ export default {
     text: { type: String, required: true },
   },
 
-  watch: {
-    selectedColor(oldColor, newColor) {
-        console.log(oldColor, newColor)
-      if (oldColor !== newColor) {
-          this.$forceUpdate()
-      }
-    },
-  },
 }
 </script>

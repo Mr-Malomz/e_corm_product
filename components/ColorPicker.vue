@@ -26,8 +26,8 @@ export default {
   },
 
   methods: {
-    setActive(selectedColor) {
-      this.setActiveColor(selectedColor)
+    setActive(color) {
+      this.setActiveColor(color)
     },
   },
 }
