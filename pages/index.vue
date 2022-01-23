@@ -6,7 +6,8 @@
         :selectedColor="selectedColor"
         :selectedImage="selectedImage"
         :selectedFont="selectedFont"
-        :text="text"
+        :customText="customText"
+        :key="key"
       />
       <div class="w-96 border-l px-4">
         <ColorPicker
@@ -43,27 +44,32 @@ export default {
       imageList,
       fontList,
       selectedColor: 'FFFFFF',
-      selectedImage: 'white-bar',
+      selectedImage: '',
       selectedFont: 'Arial',
-      text: 'Hello',
+      customText: 'Hello',
+      key: 0,
     }
   },
 
   methods: {
     setActiveColor(color) {
       this.selectedColor = color
+      this.key++
     },
 
     setActiveImage(image) {
       this.selectedImage = image
+      this.key++
     },
 
     setActiveFont(font) {
       this.selectedFont = font
+      this.key++
     },
 
     setText(text) {
-      this.text = text
+      this.customText = text
+      this.key++
     },
   },
 }

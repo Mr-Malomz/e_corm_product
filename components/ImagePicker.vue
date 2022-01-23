@@ -9,9 +9,10 @@
         :class="[
           image.publicId === selectedImage ? 'border-red-400 border-4' : '',
         ]"
-        @click="setActive(image.publicId)"
+        @click="setActiveImage(image.publicId)"
       >
-        <cld-image :public-id="image.publicId">
+        <div v-if="image.id === 1" class="w-11 h-11 bg-white"></div>
+        <cld-image v-else :public-id="image.publicId">
           <cld-transformation width="45" height="45" crop="thumb" />
         </cld-image>
       </div>
@@ -25,12 +26,6 @@ export default {
     imageList: { type: Array, required: true },
     setActiveImage: { type: Function, required: true },
     selectedImage: { type: String, required: true },
-  },
-
-  methods: {
-    setActive(selectedImage) {
-      this.setActiveImage(selectedImage)
-    },
   },
 }
 </script>

@@ -11,7 +11,7 @@
         ]"
         :key="i"
         :style="{ background: `#${color}` }"
-        @click="setActive(color)"
+        @click="setActiveColor(color)"
       ></button>
     </div>
   </div>
@@ -23,12 +23,6 @@ export default {
     availableColors: { type: Array, required: true },
     setActiveColor: { type: Function, required: true },
     selectedColor: { type: String, required: true },
-  },
-
-  methods: {
-    setActive(color) {
-      this.setActiveColor(color)
-    },
   },
 }
 </script>
